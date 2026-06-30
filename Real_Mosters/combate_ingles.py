@@ -12,6 +12,7 @@ ANCHO = 800
 ALTO = 600
 
 def iniciar_combate(screen):
+    print("1 - Entró a iniciar_combate")
     fuente = pygame.font.Font("PokemonGb-Raeo.ttf", 12)
     fuente_grande = pygame.font.Font("PokemonGb-Raeo.ttf", 14)
 
@@ -48,14 +49,15 @@ def iniciar_combate(screen):
     # ---------------------------
     # FONDO
     # ---------------------------
-    fondo = pygame.image.load("imagenes/fondo_geo.png")
+    fondo = pygame.image.load("imagenes/fondo.png")
     fondo = pygame.transform.scale(fondo, (ANCHO, ALTO))
+    print("2 - Fondo cargado")
 
     # ---------------------------
     # ENTRENADOR RIVAL
     # ---------------------------
     entrenador_rival = pygame.image.load(
-        "imagenes/entrenador_geo.png"
+        "imagenes/entrenador_rival.png"
     )
 
     entrenador_rival = pygame.transform.scale(
@@ -145,384 +147,57 @@ def iniciar_combate(screen):
     # PREGUNTAS POR MONSTRUO
     # ---------------------------
 
-    def obtener_pregunta_geo():
-
-        tipo = random.choice([
-            "capital",
-            "bandera",
-            "imagen"
-        ])
-
-        if tipo == "capital":
-            return random.choice(preguntas_capitales)
-
-        elif tipo == "bandera":
-            return random.choice(preguntas_banderas)
-
-        elif tipo == "imagen":
-            return random.choice(preguntas_imagenes)
-        
-    preguntas_banderas = [
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/chile.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Brasil","Argentina","Chile","Perú"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/brasil.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["México","Brasil","Colombia","Bolivia"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/argentina.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Uruguay","Argentina","Paraguay","Chile"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/peru.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Perú","Canadá","Polonia","Austria"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/japon.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["China","Corea del Sur","Japón","Vietnam"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/alemania.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Bélgica","Alemania","Francia","Italia"],
-        "correcta":1
-    }
-
-]
-    preguntas_imagenes = [
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/australia.png",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Australia","Canadá","Nueva Zelanda","Sudáfrica"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/brasilmapa.jpg",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Brasil","Argentina","Perú","México"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/chilemapa.jpg",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Argentina","Chile","Perú","Ecuador"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/canadamapa.jpg",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Estados Unidos","Canadá","Rusia","Noruega"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/india.png",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["China","India","Pakistán","Nepal"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/japonmapa.png",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Corea del Sur","China","Japón","Taiwán"],
-        "correcta":2
-    }
-
-]
-
-    preguntas_capitales = [
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Bolivia?",
-        "opciones":["La Paz","Lima","Quito","Bogotá"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Brasil?",
-        "opciones":["Brasilia","Rio","São Paulo","Salvador"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Argentina?",
-        "opciones":["Montevideo","Buenos Aires","Córdoba","Rosario"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Chile?",
-        "opciones":["Valparaíso","Santiago","Concepción","La Serena"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Perú?",
-        "opciones":["Cusco","Arequipa","Lima","Trujillo"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de México?",
-        "opciones":["Guadalajara","Monterrey","Cancún","Ciudad de México"],
-        "correcta":3
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Canadá?",
-        "opciones":["Toronto","Vancouver","Ottawa","Montreal"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Estados Unidos?",
-        "opciones":["Nueva York","Washington D.C.","Los Ángeles","Chicago"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Francia?",
-        "opciones":["Marsella","Lyon","París","Niza"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de España?",
-        "opciones":["Barcelona","Madrid","Valencia","Sevilla"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Alemania?",
-        "opciones":["Berlín","Múnich","Hamburgo","Frankfurt"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Japón?",
-        "opciones":["Osaka","Kioto","Tokio","Nagoya"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de China?",
-        "opciones":["Shanghái","Hong Kong","Pekín","Cantón"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Australia?",
-        "opciones":["Sídney","Melbourne","Canberra","Perth"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Rusia?",
-        "opciones":["Moscú","San Petersburgo","Kiev","Minsk"],
-        "correcta":0
-    }
-
-    ]
-    preguntas_geografia = [
-        {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el océano más grande del mundo?",
-        "opciones":["Atlántico","Índico","Pacífico","Ártico"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué océano baña la costa este de América?",
-        "opciones":["Pacífico","Atlántico","Índico","Ártico"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué océano separa América de Europa?",
-        "opciones":["Atlántico","Pacífico","Índico","Antártico"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el océano más pequeño?",
-        "opciones":["Pacífico","Ártico","Atlántico","Índico"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Por qué país pasa el Meridiano de Greenwich?",
-        "opciones":["Francia","España","Reino Unido","Alemania"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué marca el Meridiano de Greenwich?",
-        "opciones":["Latitud 0°","Longitud 0°","Ecuador","Trópico de Capricornio"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué línea divide la Tierra en hemisferio norte y sur?",
-        "opciones":["Greenwich","Capricornio","Ecuador","Círculo Polar"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿En qué hemisferio se encuentra Argentina?",
-        "opciones":["Norte","Sur","Ambos","Ninguno"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué línea imaginaria pasa por el norte de Argentina?",
-        "opciones":["Ecuador","Capricornio","Greenwich","Cáncer"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el Trópico ubicado al norte del Ecuador?",
-        "opciones":["Capricornio","Cáncer","Greenwich","Ártico"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el Trópico ubicado al sur del Ecuador?",
-        "opciones":["Capricornio","Cáncer","Greenwich","Antártico"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el continente más grande?",
-        "opciones":["África","América","Europa","Asia"],
-        "correcta":3
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el continente más pequeño?",
-        "opciones":["Europa","Oceanía","África","América"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué continente tiene más países?",
-        "opciones":["Europa","América","África","Asia"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el desierto más grande del mundo?",
-        "opciones":["Sahara","Atacama","Gobi","Antártida"],
-        "correcta":3
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es la cordillera más larga del mundo?",
-        "opciones":["Alpes","Andes","Himalaya","Rocosas"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Dónde se encuentra la Cordillera de los Andes?",
-        "opciones":["Europa","Asia","Sudamérica","África"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el río más largo del mundo?",
-        "opciones":["Amazonas","Nilo","Paraná","Yangtsé"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué país posee la mayor parte de la selva amazónica?",
-        "opciones":["Perú","Brasil","Colombia","Bolivia"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el punto más alto de la Tierra?",
-        "opciones":["Aconcagua","K2","Everest","Aneto"],
-        "correcta":2
-    }
-    ]
     preguntas_por_monstruo = {
-        
-    "paisor": preguntas_capitales + preguntas_banderas,
 
-    "geografox": preguntas_imagenes + preguntas_geografia
+        "vocabulon": [
+            ("¿Cómo se dice 'perro' en inglés?", ["A) Cat", "B) Dog", "C) Bird", "D) Fish"], "B"),
+            ("¿Cómo se dice 'gato'?", ["A) Dog", "B) Bird", "C) Cat", "D) Cow"], "C"),
+            ("¿Qué significa 'Apple'?", ["A) Banana", "B) Manzana", "C) Naranja", "D) Uva"], "B"),
+            ("¿Qué significa 'House'?", ["A) Casa", "B) Escuela", "C) Auto", "D) Calle"], "A"),
+            ("¿Cómo se dice 'agua'?", ["A) Fire", "B) Water", "C) Earth", "D) Air"], "B"),
+            ("¿Cómo se dice 'escuela'?", ["A) School", "B) Hospital", "C) Park", "D) House"], "A"),
+            ("¿Qué significa 'Book'?", ["A) Mesa", "B) Libro", "C) Puerta", "D) Silla"], "B"),
+            ("¿Cómo se dice 'rojo'?", ["A) Blue", "B) Green", "C) Red", "D) Yellow"], "C"),
+            ("¿Cómo se dice 'verde'?", ["A) Green", "B) Black", "C) White", "D) Purple"], "A"),
+            ("¿Qué significa 'Teacher'?", ["A) Alumno", "B) Director", "C) Profesor", "D) Médico"], "C"),
+            ("¿Cómo se dice 'comida'?", ["A) Food", "B) Drink", "C) Table", "D) Chair"], "A"),
+            ("¿Qué significa 'Car'?", ["A) Bicicleta", "B) Tren", "C) Auto", "D) Moto"], "C"),
+            ("¿Cómo se dice 'amigo'?", ["A) Enemy", "B) Friend", "C) Brother", "D) Father"], "B"),
+            ("¿Qué significa 'Window'?", ["A) Puerta", "B) Techo", "C) Ventana", "D) Piso"], "C"),
+            ("¿Cómo se dice 'sol'?", ["A) Moon", "B) Star", "C) Sun", "D) Sky"], "C"),
+            ("¿Qué significa 'Happy'?", ["A) Triste", "B) Feliz", "C) Enojado", "D) Cansado"], "B"),
+            ("¿Cómo se dice 'familia'?", ["A) Family", "B) Friends", "C) Team", "D) Group"], "A"),
+            ("¿Qué significa 'Computer'?", ["A) Celular", "B) Tablet", "C) Computadora", "D) Televisor"], "C"),
+            ("¿Cómo se dice 'día'?", ["A) Night", "B) Day", "C) Week", "D) Month"], "B"),
+            ("¿Qué significa 'Chair'?", ["A) Mesa", "B) Silla", "C) Cama", "D) Ventana"], "B")
+        ],
 
+        "grammatix": [
+            ("Completa: I ___ a student.", ["A) am", "B) is", "C) are", "D) be"], "A"),
+            ("Completa: She ___ happy.", ["A) am", "B) are", "C) is", "D) be"], "C"),
+            ("Completa: They ___ friends.", ["A) is", "B) are", "C) am", "D) be"], "B"),
+            ("Completa: He ___ my brother.", ["A) am", "B) are", "C) is", "D) be"], "C"),
+            ("¿Cuál es el plural de 'child'?", ["A) childs", "B) childrens", "C) children", "D) childes"], "C"),
+            ("¿Cuál es correcto?", ["A) He are tall", "B) He is tall", "C) He am tall", "D) He be tall"], "B"),
+            ("Completa: My name ___ John.", ["A) am", "B) are", "C) is", "D) be"], "C"),
+            ("Completa: We ___ ready.", ["A) am", "B) is", "C) are", "D) be"], "C"),
+            ("¿Cuál es el plural de 'mouse'?", ["A) mouses", "B) mice", "C) mouse", "D) mousen"], "B"),
+            ("Completa: The dog ___ brown.", ["A) am", "B) are", "C) is", "D) be"], "C"),
+            ("¿Cuál es correcto?", ["A) I am happy", "B) I is happy", "C) I are happy", "D) I be happy"], "A"),
+            ("Completa: You ___ my friend.", ["A) am", "B) is", "C) are", "D) be"], "C"),
+            ("¿Cuál es el plural de 'foot'?", ["A) foots", "B) feets", "C) feet", "D) footes"], "C"),
+            ("Completa: It ___ raining.", ["A) am", "B) are", "C) is", "D) be"], "C"),
+            ("¿Cuál es correcto?", ["A) They is here", "B) They are here", "C) They am here", "D) They be here"], "B"),
+            ("Completa: The boys ___ playing.", ["A) is", "B) am", "C) are", "D) be"], "C"),
+            ("¿Cuál es el plural de 'woman'?", ["A) womans", "B) women", "C) womanes", "D) wemens"], "B"),
+            ("Completa: I ___ from Argentina.", ["A) am", "B) is", "C) are", "D) be"], "A"),
+            ("¿Cuál es correcto?", ["A) She are smart", "B) She am smart", "C) She is smart", "D) She be smart"], "C"),
+            ("Completa: The cat ___ sleeping.", ["A) am", "B) is", "C) are", "D) be"], "B")
+        ]
     }
 
-
+    # Guarda las preguntas que todavia no salieron.
+    # Asi no se repiten durante el combate.
     preguntas_disponibles = {}
 
     # ---------------------------
@@ -530,27 +205,13 @@ def iniciar_combate(screen):
     # ---------------------------
     def obtener_pregunta(monstruo_nombre):
 
-        if monstruo_nombre not in preguntas_disponibles:
-
-            preguntas_disponibles[monstruo_nombre] = (
-                preguntas_por_monstruo[monstruo_nombre].copy()
-            )
-
-            random.shuffle(
-                preguntas_disponibles[monstruo_nombre]
-            )
-
-        if len(preguntas_disponibles[monstruo_nombre]) == 0:
-
-            preguntas_disponibles[monstruo_nombre] = (
-                preguntas_por_monstruo[monstruo_nombre].copy()
-            )
-
-            random.shuffle(
-                preguntas_disponibles[monstruo_nombre]
-            )
+        if monstruo_nombre not in preguntas_disponibles or len(preguntas_disponibles[monstruo_nombre]) == 0:
+            preguntas_disponibles[monstruo_nombre] = preguntas_por_monstruo[monstruo_nombre].copy()
+            random.shuffle(preguntas_disponibles[monstruo_nombre])
 
         return preguntas_disponibles[monstruo_nombre].pop()
+
+    # ---------------------------
     # PARTICULAS
     # ---------------------------
     def crear_particulas(x, y):
@@ -875,7 +536,7 @@ def iniciar_combate(screen):
             # CAMBIA MÁS LENTO
             if random.randint(1,4) == 1:
 
-                numero_actual = random.randint(1,12)
+                numero_actual = random.randint(5,12)
 
             # EFECTO ZOOM
             tamaño = 120 + math.sin(time.time()*10)*8
@@ -985,48 +646,16 @@ def iniciar_combate(screen):
     # PREGUNTAR
     # ---------------------------
     def preguntar():
-        pregunta_actual = obtener_pregunta(e.nombre)
-        tipo = pregunta_actual["tipo"]
-        if "imagen" in pregunta_actual:
-            img = pygame.image.load(pregunta_actual["imagen"]).convert_alpha()
-            img = pygame.transform.scale(img, (280, 200))
-        else:
-            img = None
-            
+
+        pregunta, opciones, correcta = obtener_pregunta(e.nombre)
+
         seleccion = 0
 
         inicio = time.time()
 
         while True:
-            if img: 
-                screen.blit(fondo, (0,0))
-                recuadro_x = 40
-                recuadro_y = 30
-                recuadro_w = 300
-                recuadro_h = 220
 
-                pygame.draw.rect(
-                    screen,
-                    BLANCO,
-                    (recuadro_x, recuadro_y, recuadro_w, recuadro_h),
-                    border_radius=15
-                )
-
-                pygame.draw.rect(
-                    screen,
-                    NEGRO,
-                    (recuadro_x, recuadro_y, recuadro_w, recuadro_h),
-                    4,
-                    border_radius=15
-            )
-            if img:
-                img_rect = img.get_rect(
-                    center=(
-                        recuadro_x + recuadro_w//2,
-                        recuadro_y + recuadro_h//2
-                    )
-                )
-                screen.blit(img, img_rect)
+            screen.blit(fondo, (0,0))
 
             # ENTRENADOR RIVAL
             screen.blit(
@@ -1087,7 +716,7 @@ def iniciar_combate(screen):
             )
 
             texto_borde(
-                pregunta_actual["pregunta"],
+                pregunta,
                 fuente_grande,
                 NEGRO,
                 BLANCO,
@@ -1095,7 +724,7 @@ def iniciar_combate(screen):
                 440
             )
 
-            for i, op in enumerate(pregunta_actual["opciones"]):
+            for i, op in enumerate(opciones):
 
                 color = (
                     (0,100,255)
@@ -1154,8 +783,18 @@ def iniciar_combate(screen):
                         ) % 4
 
                     elif event.key == pygame.K_RETURN:
-                        return seleccion == pregunta_actual["correcta"]
-                      
+
+                        letras = [
+                            "A",
+                            "B",
+                            "C",
+                            "D"
+                        ]
+
+                        return (
+                            letras[seleccion]
+                            == correcta
+                        )
 
     # ---------------------------
     # MONSTRUOS
@@ -1172,16 +811,16 @@ def iniciar_combate(screen):
     enemigo = [
 
         Monstruo(
-            "paisor",
-            50,
-            "imagenes/paisor.png"
+            "vocabulon",
+            20,
+            "imagenes/buggix.jfif"
         ),
+
         Monstruo(
-            "geografox",
-            60,
-            "imagenes/oceanix.png"
-        )
-    ]
+            "grammatix",
+            25,
+            "imagenes/saluditos pa.jfif"
+        )]
 
     def elegir(lista):
 
@@ -1225,8 +864,8 @@ def iniciar_combate(screen):
             texto_borde("PERDISTE", fuente_grande, ROJO, NEGRO, 300, 200)
             pygame.display.update()
             pygame.time.delay(3000)
-            pygame.mixer.music.stop
-            return "menu"
+            pygame.mixer.music.stop()
+            return "lab_ingles"
 
         if e is None:
             canal_victoria.play()
@@ -1235,7 +874,7 @@ def iniciar_combate(screen):
             pygame.mixer.music.stop()
             pygame.time.delay(3000)
             canal_victoria.stop()
-            return "menu"
+            return "lab_ingles"
 
         if not j:
 
@@ -1250,7 +889,7 @@ def iniciar_combate(screen):
 
             pygame.display.update()
             pygame.time.delay(3000)  
-            return "menu"
+            return "lab_ingles"
             
         
 
@@ -1271,7 +910,7 @@ def iniciar_combate(screen):
             pygame.time.delay(3000)
             pygame.mixer.music.stop()
             canal_victoria.stop()
-            return "menu"
+            return "lab_ingles"
 
         mov_e = math.sin(time.time()*3)*5
         mov_j = math.sin(time.time()*3+1)*5

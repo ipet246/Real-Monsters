@@ -12,8 +12,8 @@ ANCHO = 800
 ALTO = 600
 
 def iniciar_combate(screen):
-    fuente = pygame.font.Font("PokemonGb-Raeo.ttf", 12)
-    fuente_grande = pygame.font.Font("PokemonGb-Raeo.ttf", 14)
+    fuente = pygame.font.Font("PokemonGb-Raeo.ttf", 8)
+    fuente_grande = pygame.font.Font("PokemonGb-Raeo.ttf", 10)
 
     BLANCO = (255,255,255)
     NEGRO = (0,0,0)
@@ -48,7 +48,7 @@ def iniciar_combate(screen):
     # ---------------------------
     # FONDO
     # ---------------------------
-    fondo = pygame.image.load("imagenes/fondo.png")
+    fondo = pygame.image.load("imagenes/fondologica.jpeg")
     fondo = pygame.transform.scale(fondo, (ANCHO, ALTO))
 
     # ---------------------------
@@ -68,7 +68,7 @@ def iniciar_combate(screen):
     # ---------------------------
     dados = []
 
-    for i in range(1,13):
+    for i in range(5,13):
 
         img = pygame.image.load(
             f"imagenes/dado/dado{i}.png"

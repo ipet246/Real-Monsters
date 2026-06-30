@@ -48,14 +48,14 @@ def iniciar_combate(screen):
     # ---------------------------
     # FONDO
     # ---------------------------
-    fondo = pygame.image.load("imagenes/fondo_geo.png")
+    fondo = pygame.image.load("imagenes/fondoprogramacion.jfif")
     fondo = pygame.transform.scale(fondo, (ANCHO, ALTO))
 
     # ---------------------------
     # ENTRENADOR RIVAL
     # ---------------------------
     entrenador_rival = pygame.image.load(
-        "imagenes/entrenador_geo.png"
+        "imagenes/entrenador_rival.png"
     )
 
     entrenador_rival = pygame.transform.scale(
@@ -145,384 +145,117 @@ def iniciar_combate(screen):
     # PREGUNTAS POR MONSTRUO
     # ---------------------------
 
-    def obtener_pregunta_geo():
-
-        tipo = random.choice([
-            "capital",
-            "bandera",
-            "imagen"
-        ])
-
-        if tipo == "capital":
-            return random.choice(preguntas_capitales)
-
-        elif tipo == "bandera":
-            return random.choice(preguntas_banderas)
-
-        elif tipo == "imagen":
-            return random.choice(preguntas_imagenes)
-        
-    preguntas_banderas = [
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/chile.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Brasil","Argentina","Chile","Perú"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/brasil.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["México","Brasil","Colombia","Bolivia"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/argentina.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Uruguay","Argentina","Paraguay","Chile"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/peru.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Perú","Canadá","Polonia","Austria"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/japon.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["China","Corea del Sur","Japón","Vietnam"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/alemania.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Bélgica","Alemania","Francia","Italia"],
-        "correcta":1
-    }
-
-]
-    preguntas_imagenes = [
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/australia.png",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Australia","Canadá","Nueva Zelanda","Sudáfrica"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/brasilmapa.jpg",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Brasil","Argentina","Perú","México"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/chilemapa.jpg",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Argentina","Chile","Perú","Ecuador"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/canadamapa.jpg",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Estados Unidos","Canadá","Rusia","Noruega"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/india.png",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["China","India","Pakistán","Nepal"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/japonmapa.png",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Corea del Sur","China","Japón","Taiwán"],
-        "correcta":2
-    }
-
-]
-
-    preguntas_capitales = [
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Bolivia?",
-        "opciones":["La Paz","Lima","Quito","Bogotá"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Brasil?",
-        "opciones":["Brasilia","Rio","São Paulo","Salvador"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Argentina?",
-        "opciones":["Montevideo","Buenos Aires","Córdoba","Rosario"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Chile?",
-        "opciones":["Valparaíso","Santiago","Concepción","La Serena"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Perú?",
-        "opciones":["Cusco","Arequipa","Lima","Trujillo"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de México?",
-        "opciones":["Guadalajara","Monterrey","Cancún","Ciudad de México"],
-        "correcta":3
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Canadá?",
-        "opciones":["Toronto","Vancouver","Ottawa","Montreal"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Estados Unidos?",
-        "opciones":["Nueva York","Washington D.C.","Los Ángeles","Chicago"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Francia?",
-        "opciones":["Marsella","Lyon","París","Niza"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de España?",
-        "opciones":["Barcelona","Madrid","Valencia","Sevilla"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Alemania?",
-        "opciones":["Berlín","Múnich","Hamburgo","Frankfurt"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Japón?",
-        "opciones":["Osaka","Kioto","Tokio","Nagoya"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de China?",
-        "opciones":["Shanghái","Hong Kong","Pekín","Cantón"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Australia?",
-        "opciones":["Sídney","Melbourne","Canberra","Perth"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Rusia?",
-        "opciones":["Moscú","San Petersburgo","Kiev","Minsk"],
-        "correcta":0
-    }
-
-    ]
-    preguntas_geografia = [
-        {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el océano más grande del mundo?",
-        "opciones":["Atlántico","Índico","Pacífico","Ártico"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué océano baña la costa este de América?",
-        "opciones":["Pacífico","Atlántico","Índico","Ártico"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué océano separa América de Europa?",
-        "opciones":["Atlántico","Pacífico","Índico","Antártico"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el océano más pequeño?",
-        "opciones":["Pacífico","Ártico","Atlántico","Índico"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Por qué país pasa el Meridiano de Greenwich?",
-        "opciones":["Francia","España","Reino Unido","Alemania"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué marca el Meridiano de Greenwich?",
-        "opciones":["Latitud 0°","Longitud 0°","Ecuador","Trópico de Capricornio"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué línea divide la Tierra en hemisferio norte y sur?",
-        "opciones":["Greenwich","Capricornio","Ecuador","Círculo Polar"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿En qué hemisferio se encuentra Argentina?",
-        "opciones":["Norte","Sur","Ambos","Ninguno"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué línea imaginaria pasa por el norte de Argentina?",
-        "opciones":["Ecuador","Capricornio","Greenwich","Cáncer"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el Trópico ubicado al norte del Ecuador?",
-        "opciones":["Capricornio","Cáncer","Greenwich","Ártico"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el Trópico ubicado al sur del Ecuador?",
-        "opciones":["Capricornio","Cáncer","Greenwich","Antártico"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el continente más grande?",
-        "opciones":["África","América","Europa","Asia"],
-        "correcta":3
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el continente más pequeño?",
-        "opciones":["Europa","Oceanía","África","América"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué continente tiene más países?",
-        "opciones":["Europa","América","África","Asia"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el desierto más grande del mundo?",
-        "opciones":["Sahara","Atacama","Gobi","Antártida"],
-        "correcta":3
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es la cordillera más larga del mundo?",
-        "opciones":["Alpes","Andes","Himalaya","Rocosas"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Dónde se encuentra la Cordillera de los Andes?",
-        "opciones":["Europa","Asia","Sudamérica","África"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el río más largo del mundo?",
-        "opciones":["Amazonas","Nilo","Paraná","Yangtsé"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué país posee la mayor parte de la selva amazónica?",
-        "opciones":["Perú","Brasil","Colombia","Bolivia"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el punto más alto de la Tierra?",
-        "opciones":["Aconcagua","K2","Everest","Aneto"],
-        "correcta":2
-    }
-    ]
     preguntas_por_monstruo = {
-        
-    "paisor": preguntas_capitales + preguntas_banderas,
 
-    "geografox": preguntas_imagenes + preguntas_geografia
+        "brocca": [
+            (
+                "Que funcion muestra texto en pantalla?",
+                ["print()", "input()", "while", "pygame"],
+                "print()"
+            ),
+            (
+                "Completa: print( ? ) para mostrar Hola",
+                ["\"Hola\"", "Hola", "print", "texto"],
+                "\"Hola\""
+            ),
+            (
+                "Que hace esta linea: nombre = \"Ana\"?",
+                ["Guarda Ana en una variable", "Muestra Ana", "Borra Ana", "Cierra Python"],
+                "Guarda Ana en una variable"
+            ),
+            (
+                "Si x = 5, que muestra print(x)?",
+                ["5", "x", "print", "Error"],
+                "5"
+            ),
+            (
+                "Que simbolo se usa para asignar un valor?",
+                ["=", "==", "+", "()"],
+                "="
+            ),
+            (
+                "En Python, un texto se escribe entre...",
+                ["comillas", "flechas", "puntos", "llaves"],
+                "comillas"
+            ),
+            (
+                "Que muestra print(3 + 2)?",
+                ["5", "32", "3 + 2", "Error"],
+                "5"
+            ),
+            (
+                "Completa: edad = 15. Para mostrarla uso...",
+                ["print(edad)", "print(\"edad\")", "edad(print)", "mostrar edad"],
+                "print(edad)"
+            ),
+            (
+                "Que hace input()?",
+                ["Pide datos al usuario", "Muestra texto", "Crea una imagen", "Borra una variable"],
+                "Pide datos al usuario"
+            ),
+            (
+                "Como se llama un dato guardado con un nombre?",
+                ["Variable", "Pantalla", "Sonido", "Mapa"],
+                "Variable"
+            )
+        ],
 
+        "cufre": [
+            (
+                "Que significa == en una condicion?",
+                ["Comparar igualdad", "Asignar valor", "Sumar", "Dividir"],
+                "Comparar igualdad"
+            ),
+            (
+                "Cual sirve para tomar una decision?",
+                ["if", "print", "color", "imagen"],
+                "if"
+            ),
+            (
+                "Completa: if edad >= 18:",
+                ["es una condicion", "muestra texto", "borra edad", "crea musica"],
+                "es una condicion"
+            ),
+            (
+                "Que palabra sirve para repetir acciones?",
+                ["while", "print", "image", "font"],
+                "while"
+            ),
+            (
+                "Completa: vidas = vidas - 1 sirve para...",
+                ["Restar una vida", "Sumar una vida", "Mostrar vidas", "Crear vidas"],
+                "Restar una vida"
+            ),
+            (
+                "Cual es correcto para comparar una clave?",
+                ["if clave == \"1234\":", "if clave = \"1234\":", "clave if 1234", "print clave"],
+                "if clave == \"1234\":"
+            ),
+            (
+                "Que hace una variable?",
+                ["Guarda un dato", "Solo dibuja", "Solo reproduce sonido", "Apaga el juego"],
+                "Guarda un dato"
+            ),
+            (
+                "Completa: puntos = puntos + 10 sirve para...",
+                ["Sumar puntos", "Borrar puntos", "Crear texto", "Cerrar ventana"],
+                "Sumar puntos"
+            ),
+            (
+                "Que estructura usa pygame para detectar teclas o cerrar ventana?",
+                ["eventos", "colores", "imagenes", "fuentes"],
+                "eventos"
+            ),
+            (
+                "Que pasa si una condicion if es verdadera?",
+                ["Se ejecuta su bloque", "Siempre da error", "Se cierra Python", "No pasa nada"],
+                "Se ejecuta su bloque"
+            )
+        ]
     }
 
-
+    # Guarda las preguntas que todavia no salieron.
+    # Asi no se repiten durante el combate.
     preguntas_disponibles = {}
 
     # ---------------------------
@@ -530,27 +263,13 @@ def iniciar_combate(screen):
     # ---------------------------
     def obtener_pregunta(monstruo_nombre):
 
-        if monstruo_nombre not in preguntas_disponibles:
-
-            preguntas_disponibles[monstruo_nombre] = (
-                preguntas_por_monstruo[monstruo_nombre].copy()
-            )
-
-            random.shuffle(
-                preguntas_disponibles[monstruo_nombre]
-            )
-
-        if len(preguntas_disponibles[monstruo_nombre]) == 0:
-
-            preguntas_disponibles[monstruo_nombre] = (
-                preguntas_por_monstruo[monstruo_nombre].copy()
-            )
-
-            random.shuffle(
-                preguntas_disponibles[monstruo_nombre]
-            )
+        if monstruo_nombre not in preguntas_disponibles or len(preguntas_disponibles[monstruo_nombre]) == 0:
+            preguntas_disponibles[monstruo_nombre] = preguntas_por_monstruo[monstruo_nombre].copy()
+            random.shuffle(preguntas_disponibles[monstruo_nombre])
 
         return preguntas_disponibles[monstruo_nombre].pop()
+
+    # ---------------------------
     # PARTICULAS
     # ---------------------------
     def crear_particulas(x, y):
@@ -831,7 +550,7 @@ def iniciar_combate(screen):
 
         inicio = time.time()
 
-        numero_actual = random.randint(5,12)
+        numero_actual = random.randint(1,12)
 
         # duración MÁS CORTA
         while time.time() - inicio < 1:
@@ -985,48 +704,20 @@ def iniciar_combate(screen):
     # PREGUNTAR
     # ---------------------------
     def preguntar():
-        pregunta_actual = obtener_pregunta(e.nombre)
-        tipo = pregunta_actual["tipo"]
-        if "imagen" in pregunta_actual:
-            img = pygame.image.load(pregunta_actual["imagen"]).convert_alpha()
-            img = pygame.transform.scale(img, (280, 200))
-        else:
-            img = None
-            
+
+        pregunta, opciones, correcta = obtener_pregunta(e.nombre)
+
+        # Mezcla las respuestas para que no siempre esten en el mismo lugar
+        opciones_mezcladas = opciones.copy()
+        random.shuffle(opciones_mezcladas)
+
         seleccion = 0
 
         inicio = time.time()
 
         while True:
-            if img: 
-                screen.blit(fondo, (0,0))
-                recuadro_x = 40
-                recuadro_y = 30
-                recuadro_w = 300
-                recuadro_h = 220
 
-                pygame.draw.rect(
-                    screen,
-                    BLANCO,
-                    (recuadro_x, recuadro_y, recuadro_w, recuadro_h),
-                    border_radius=15
-                )
-
-                pygame.draw.rect(
-                    screen,
-                    NEGRO,
-                    (recuadro_x, recuadro_y, recuadro_w, recuadro_h),
-                    4,
-                    border_radius=15
-            )
-            if img:
-                img_rect = img.get_rect(
-                    center=(
-                        recuadro_x + recuadro_w//2,
-                        recuadro_y + recuadro_h//2
-                    )
-                )
-                screen.blit(img, img_rect)
+            screen.blit(fondo, (0,0))
 
             # ENTRENADOR RIVAL
             screen.blit(
@@ -1040,7 +731,7 @@ def iniciar_combate(screen):
             enemigo_x = 500
             enemigo_y = 120
 
-            screen .blit(
+            screen.blit(
                 e.imagen,
                 (
                     enemigo_x,
@@ -1087,7 +778,7 @@ def iniciar_combate(screen):
             )
 
             texto_borde(
-                pregunta_actual["pregunta"],
+                pregunta,
                 fuente_grande,
                 NEGRO,
                 BLANCO,
@@ -1095,7 +786,9 @@ def iniciar_combate(screen):
                 440
             )
 
-            for i, op in enumerate(pregunta_actual["opciones"]):
+            letras = ["A", "B", "C", "D"]
+
+            for i, op in enumerate(opciones_mezcladas):
 
                 color = (
                     (0,100,255)
@@ -1104,7 +797,7 @@ def iniciar_combate(screen):
                 )
 
                 texto_borde(
-                    op,
+                    letras[i] + ") " + op,
                     fuente,
                     color,
                     BLANCO,
@@ -1154,8 +847,8 @@ def iniciar_combate(screen):
                         ) % 4
 
                     elif event.key == pygame.K_RETURN:
-                        return seleccion == pregunta_actual["correcta"]
-                      
+
+                        return opciones_mezcladas[seleccion] == correcta
 
     # ---------------------------
     # MONSTRUOS
@@ -1172,14 +865,15 @@ def iniciar_combate(screen):
     enemigo = [
 
         Monstruo(
-            "paisor",
-            50,
-            "imagenes/paisor.png"
+            "brocca",
+            20,
+            "imagenes/brocca.png"
         ),
+
         Monstruo(
-            "geografox",
-            60,
-            "imagenes/oceanix.png"
+            "cufre",
+            25,
+            "imagenes/cufre.png"
         )
     ]
 
@@ -1226,7 +920,7 @@ def iniciar_combate(screen):
             pygame.display.update()
             pygame.time.delay(3000)
             pygame.mixer.music.stop
-            return "menu"
+            return "lab_programacion"
 
         if e is None:
             canal_victoria.play()
@@ -1235,7 +929,7 @@ def iniciar_combate(screen):
             pygame.mixer.music.stop()
             pygame.time.delay(3000)
             canal_victoria.stop()
-            return "menu"
+            return "lab_programacion"
 
         if not j:
 
@@ -1250,7 +944,7 @@ def iniciar_combate(screen):
 
             pygame.display.update()
             pygame.time.delay(3000)  
-            return "menu"
+            return "lab_programacion"
             
         
 
@@ -1271,7 +965,7 @@ def iniciar_combate(screen):
             pygame.time.delay(3000)
             pygame.mixer.music.stop()
             canal_victoria.stop()
-            return "menu"
+            return "lab_programacion"
 
         mov_e = math.sin(time.time()*3)*5
         mov_j = math.sin(time.time()*3+1)*5
@@ -1334,7 +1028,7 @@ def iniciar_combate(screen):
 
         # TEXTOS
         texto_borde(
-            "RESPONDE PARA ATACAR",
+            "COMPLETA EL CODIGO",
             fuente_grande,
             BLANCO,
             NEGRO,

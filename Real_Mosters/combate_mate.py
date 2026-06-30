@@ -68,7 +68,7 @@ def iniciar_combate(screen):
     # ---------------------------
     dados = []
 
-    for i in range(1,13):
+    for i in range(5,13):
 
         img = pygame.image.load(
             f"imagenes/dado/dado{i}.png"
@@ -147,21 +147,6 @@ def iniciar_combate(screen):
 
     preguntas_por_monstruo = {
 
-        "contarix": [
-            ("5 + 7?", ["A)10", "B)12", "C)13", "D)14"], "B"),
-            ("15 - 5?", ["A)5", "B)20", "C)10", "D)8"], "C"),
-            ("8 + 6?", ["A)12", "B)14", "C)16", "D)18"], "B"),
-            ("20 - 9?", ["A)9", "B)10", "C)11", "D)12"], "C"),
-            ("4 x 3?", ["A)7", "B)10", "C)12", "D)14"], "C"),
-            ("18 / 3?", ["A)5", "B)6", "C)7", "D)9"], "B"),
-            ("10 + 15?", ["A)20", "B)25", "C)30", "D)35"], "B"),
-            ("30 - 12?", ["A)16", "B)17", "C)18", "D)20"], "C"),
-            ("La caracteristica de los numeros naturales es?", ["A)incluyen numeros negativos", "B)contar objetos", "C)son infinitos solo hacia la izquierda", "D)incluyen decimales"], "B"),
-            ("Cual NO es un numero natural?", ["A)3", "B)10", "C)-2", "D)25"], "C"),
-            ("Cual es el menor numero natural si se incluye el cero?", ["A)-1", "B)0", "C)1", "D)10"], "B"),
-            ("7 x 2?", ["A)9", "B)12", "C)14", "D)16"], "C")
-        ],
-
         "negatrix": [
             ("-5 + 10?", ["A)15", "B)5", "C)-5", "D)0"], "B"),
             ("-3 x 4?", ["A)-12", "B)12", "C)-7", "D)1"], "A"),
@@ -192,19 +177,6 @@ def iniciar_combate(screen):
             ("5/5 es igual a?", ["A)0", "B)1", "C)5", "D)10"], "B")
         ],
 
-        "infinitum": [
-            ("Cuanto es infinito + 1?", ["A)infinito", "B)1", "C)0", "D)2"], "A"),
-            ("Hay un numero mas grande que infinito?", ["A)Si", "B)No", "C)A veces", "D)2"], "B"),
-            ("Que distingue a los numeros irracionales?", ["A)No pueden expresarse como fraccion exacta", "B)Se pueden escribir como fraccion exacta", "C)Son solo negativos", "D)Son solo enteros"], "A"),
-            ("Cual es un numero irracional?", ["A)1/2", "B)3", "C)raiz de 2", "D)-5"], "C"),
-            ("Pi es un numero...", ["A)natural", "B)entero", "C)irracional", "D)par"], "C"),
-            ("Los decimales de un irracional son...", ["A)finitos", "B)infinitos sin repetirse", "C)siempre 0", "D)siempre negativos"], "B"),
-            ("Raiz de 9 es irracional?", ["A)Si", "B)No", "C)A veces", "D)No existe"], "B"),
-            ("Raiz de 2 es aproximadamente?", ["A)1,41", "B)2", "C)3", "D)0"], "A"),
-            ("Un decimal infinito periodico es racional?", ["A)Si", "B)No", "C)Nunca", "D)Solo si es negativo"], "A"),
-            ("0,333... se puede escribir como fraccion?", ["A)Si", "B)No", "C)Solo con raiz", "D)Solo con pi"], "A"),
-            ("Pi se puede escribir como fraccion exacta?", ["A)Si", "B)No", "C)Solo como 3/14", "D)Solo como 22"], "B")
-        ],
 
         "realion": [
             ("Raiz de 25?", ["A)25", "B)10", "C)5", "D)15"], "C"),
@@ -836,11 +808,6 @@ def iniciar_combate(screen):
 
     enemigo = [
 
-        Monstruo(
-            "contarix",
-            15,
-            "imagenes/contarix.png"
-        ),
 
         Monstruo(
             "negatrix",
@@ -854,11 +821,6 @@ def iniciar_combate(screen):
             "imagenes/fraction.png"
         ),
 
-        Monstruo(
-            "infinitum",
-            20,
-            "imagenes/infinitum.png"
-        ),
 
         Monstruo(
             "realion",

@@ -4,6 +4,10 @@ import combate_geo
 import combate_mate
 import combate_lengua
 import combate_logica
+import combate_ingles
+import combate_programacion
+import combate_historia
+import combate_filosofia
 import time
 from combate_mate import iniciar_combate
 pygame.init()
@@ -42,7 +46,7 @@ spritesheet = pygame.transform.scale(spritesheet, (192, 256))
 
 boss_matematicas = pygame.image.load("personajes/pitagoras.png").convert_alpha()
 
-boss_geografia = pygame.image.load("personajes/Mainini.png").convert_alpha()
+boss_geografia = pygame.image.load("personajes/mainini.png").convert_alpha()
 boss_geografia = pygame.transform.scale(boss_geografia, (950, 700))
 
 boss_lengua = pygame.image.load("personajes/barassi.png").convert_alpha()
@@ -53,6 +57,9 @@ boss_historia = pygame.transform.scale(boss_historia, (950, 700))
 
 boss_programacion = pygame.image.load("personajes/broccacufre.png").convert_alpha()
 boss_programacion = pygame.transform.scale(boss_programacion, (950, 700))
+
+obunga = pygame.image.load("personajes/obunga.jfif").convert_alpha()
+obunga = pygame.transform.scale(obunga, (950, 700))
 
 # OBJETOS
 # matematicas
@@ -94,6 +101,13 @@ mapa_historia = pygame.transform.scale(mapa_historia, (800, 600))
 
 mapa_programacion = pygame.image.load("mapas/lab_prog.png").convert()
 mapa_programacion = pygame.transform.scale(mapa_programacion, (800, 600))
+
+mapa_log = pygame.image.load("mapas/lab_log.png").convert()
+mapa_log = pygame.transform.scale(mapa_log, (800, 600))
+
+mapa_fil = pygame.image.load("mapas/lab_fil.png").convert()
+mapa_fil = pygame.transform.scale(mapa_fil, (800, 600))
+
 
 # CASAS
 matematicas = pygame.image.load("casas/casa_mate.png").convert_alpha()
@@ -210,8 +224,8 @@ casa_filosofia_arriba_x, casa_filosofia_arriba_y = 944, 165
 # DEFS      #########################################################################################################################################################
 def pantalla_controles(screen):
     esperando = True
-    titulo_font = pygame.font.Font("PokemonGb-Raeo.ttf", 36)
-    texto_font = pygame.font.Font("PokemonGb-Raeo.ttf", 22)
+    titulo_font = pygame.font.Font("PokemonGb-RAeo.ttf", 36)
+    texto_font = pygame.font.Font("PokemonGb-RAeo.ttf", 22)
     while esperando:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -315,7 +329,7 @@ def menu(screen):
     screen.blit(protagonista, prota_rect)
 
     # texto tipo "presiona algo"
-    font = pygame.font.Font("PokemonGb-Raeo.ttf", 15)
+    font = pygame.font.Font("PokemonGb-RAeo.ttf", 15)
     texto_negro = font.render("Presiona ENTER para comenzar", True, (0,0,0))
     texto_blanco = font.render("Presiona ENTER para comenzar", True, (255,255,255))
     x, y = WIDTH//2 - 350, HEIGHT - 40
@@ -353,7 +367,7 @@ def historia(screen):
     pygame.draw.rect(screen, (20,20,20), (40, 430, 720, 130))
     pygame.draw.rect(screen, (255,255,255), (40, 430, 720, 130), 4)
 
-    font = pygame.font.Font("PokemonGb-Raeo.ttf", 20)
+    font = pygame.font.Font("PokemonGb-RAeo.ttf", 20)
     texto1 = font.render(dialogos[indice_historia][0], True, (255,255,255))
     texto2 = font.render(dialogos[indice_historia][1], True, (255,255,255))
     
@@ -460,9 +474,9 @@ def mostrar_cartel_zona(screen, nombre_zona, fuente, inicio):
     
 
 #########################################################################################################################################################################################################################
-estado = "menu"
+estado = "exploracion" 
 # MAS VARIABLES #########################################################################################################################################################################################################################
-player_x, player_y = 760, 450
+player_x, player_y = 740, 450
 direction = "down"
 frame_index = 0
 boss_x, boss_y = 365, 120
@@ -480,7 +494,7 @@ dialogo_calzoski = False
 ultimo_uso_e = 0
 cartel_activo = False
 tiempo_cartel = 0
-fuente_grande = pygame.font.Font("PokemonGb-Raeo.ttf",20)
+fuente_grande = pygame.font.Font("PokemonGb-RAeo.ttf",20)
 #sistema de colisiones
 paredes_pueblo = [
             # límites del mapa
@@ -572,12 +586,45 @@ paredes_programacion = [
             pygame.Rect(716, 125, 50, 50),      #esquina derecha
             pygame.Rect(40, 125, 50, 50),      #esquina izquierda
 
-            pygame.Rect(500, 150, 80, 80),   #estanteria
-            pygame.Rect(280, 295, 237, 100),    # mesa 1
-            pygame.Rect(610, 325, 110, 65),    # mesa 2
-            pygame.Rect(90, 340, 67, 50),    # mesa 2
+            pygame.Rect(310, 315, 155, 110),    # mesa 1
+            pygame.Rect(590, 275, 100, 65),    # mesa 2
+            pygame.Rect(590, 392, 100, 70),    # mesa 2
+            pygame.Rect(80, 240, 115, 100),    # mesa 2
 
-            pygame.Rect(370, 150, 60, 50),     # calzoski
+            pygame.Rect(340, 160, 130, 40),     # calzoski
+        ]
+
+paredes_logica = [
+            pygame.Rect(0, 50, 800, 115),        # pared arriba
+            pygame.Rect(0, 530, 800, 40),      # pared abajo
+            pygame.Rect(0, 0, 35, 600),        # pared izquierda
+            pygame.Rect(760, 0, 35, 600),      # pared derecha
+            pygame.Rect(716, 125, 50, 50),      #esquina derecha
+            pygame.Rect(40, 125, 50, 50),      #esquina izquierda
+
+            pygame.Rect(460, 90, 60, 80),   #estanteria
+            pygame.Rect(320, 260, 160, 135),    # mesa 1
+            pygame.Rect(578, 280, 137, 60),    # mesa 2
+            pygame.Rect(100, 320, 95, 86),    # mesa 3
+            pygame.Rect(623, 370, 40, 30),    # mesa 3
+
+            pygame.Rect(370, 150, 60, 40),     # calzoski
+        ]
+paredes_filosofia = [
+            pygame.Rect(0, 50, 800, 115),        # pared arriba
+            pygame.Rect(0, 530, 800, 40),      # pared abajo
+            pygame.Rect(0, 0, 35, 600),        # pared izquierda
+            pygame.Rect(760, 0, 35, 600),      # pared derecha
+            pygame.Rect(716, 125, 50, 50),      #esquina derecha
+            pygame.Rect(40, 125, 50, 50),      #esquina izquierda
+
+            pygame.Rect(480, 90, 80, 80),   #estanteria
+            pygame.Rect(320, 290, 160, 120),    # mesa 1
+            pygame.Rect(578, 360, 100, 80),    # mesa 2
+            pygame.Rect(100, 240, 105, 86),    # mesa 3
+            pygame.Rect(615, 240, 40, 70),    # mesa 3
+
+            pygame.Rect(370, 150, 60, 40),     # calzoski
         ]
 
 running = True
@@ -661,7 +708,7 @@ while running:
 
             if player_rect.colliderect(rect):
 
-                font = pygame.font.Font("PokemonGb-Raeo.ttf", 18)
+                font = pygame.font.Font("PokemonGb-RAeo.ttf", 18)
                 msg_negro = font.render(f"Entrar a {nombre}", True, (0,0,0))
                 msg_blanco = font.render(f"Entrar a {nombre}", True, (255,255,255))
                 x, y = 250,520
@@ -790,7 +837,7 @@ while running:
                         puerta.play()
                         player_x = 365
                         player_y = 460
-                        estado = "lab_logica"
+                        estado = "lab_log"
                     elif nombre == "programacion":
                         puerta.play()
                         player_x = 365
@@ -800,9 +847,12 @@ while running:
                         puerta.play()
                         player_x = 365
                         player_y = 460
-                        estado = "lab_filosofia"
+                        estado = "lab_fil"
                     elif nombre == "ingles":
-                        estado = "lab_ingles"
+                        puerta.play()
+                        player_x = 365
+                        player_y = 460
+                        estado = "lab_ing"
                     elif nombre == "primer pueblo":
                         cartel_activo = True
                         tiempo_cartel = time.time()
@@ -1121,7 +1171,7 @@ while running:
 
                     if keys[pygame.K_SPACE]:
                         transicion_batalla()
-                        estado = "combate_lengua"
+                        estado = "combate_historia"
         paredes_actuales = paredes_pueblo 
 
     elif estado == "lab_prog":
@@ -1135,9 +1185,6 @@ while running:
         screen.blit(boss, (boss_x, boss_y))
         current_sprite = pygame.transform.scale(current_sprite, (64, 73))
         screen.blit(current_sprite, (player_x, player_y))
-        screen.blit(mesahis1, (mesahis1_x, mesahis1_y))
-        screen.blit(mesahis2, (mesahis2_x, mesahis2_y))
-        screen.blit(mesahis3, (mesahis3_x, mesahis3_y))
         puerta_salida = pygame.Rect(365, 520, 70, 30)
         puerta_salida.x -= 20
         puerta_salida.y -= 20
@@ -1181,7 +1228,6 @@ while running:
             screen.blit(msg_blanco, (x, y))
 
             if keys[pygame.K_e] and time.time() - ultimo_uso_e > 0.5:
-                adriana_salte.play()
                 ultimo_uso_e = time.time()
                 dialogo_mainini = True
                 siguiente.play()
@@ -1191,7 +1237,7 @@ while running:
                     pygame.draw.rect(screen, (255,255,255), (40, 440, 720, 130), 4)
 
                     font = pygame.font.Font("PokemonGb-Raeo.ttf", 15)
-                    texto = font.render("calzoski: ADRIANA SALTE ewe (historia)", True, (255,255,255))
+                    texto = font.render("brocca y cufre: hora de programar!", True, (255,255,255))
                     screen.blit(texto, (70, 480))
 
                     aviso = font.render("ESPACIO", True, (255,255,255))
@@ -1199,7 +1245,227 @@ while running:
 
                     if keys[pygame.K_SPACE]:
                         transicion_batalla()
-                        estado = "combate_lengua"
+                        estado = "combate_programacion"
+        paredes_actuales = paredes_pueblo 
+    elif estado=="lab_ing":
+
+        cambiar_musica("sonidos.musica/gym.mp3")
+        paredes_actuales = paredes_lengua
+        mover_jugador()
+        screen.blit(mapa_lengua, (0,0))
+        boss_x, boss_y = 367, 100
+        boss = pygame.transform.scale(obunga, (70, 110))
+        screen.blit(boss, (boss_x, boss_y))
+        current_sprite = pygame.transform.scale(current_sprite, (64, 73))
+        screen.blit(current_sprite, (player_x, player_y))
+        screen.blit(mesa1, (mesa1_x, mesa1_y))
+        screen.blit(mesa2, (mesa2_x, mesa2_y))
+        puerta_salida = pygame.Rect(365, 520, 70, 30)
+        puerta_salida.x -= 20
+        puerta_salida.y -= 20
+        if abs(player_x - puerta_salida.x) < 50 and abs(player_y - puerta_salida.y) < 50:
+            font = pygame.font.Font("PokemonGb-Raeo.ttf", 30)
+            msg_negro = font.render("salir", True, (0,0,0))
+            msg_blanco = font.render("salir", True, (255,255,255))
+            x, y = 100,510
+            # outline negro
+            screen.blit(msg_negro, (x-2, y))
+            screen.blit(msg_negro, (x+2, y))
+            screen.blit(msg_negro, (x, y-2))
+            screen.blit(msg_negro, (x, y+2))
+
+            # texto principal
+            screen.blit(msg_blanco, (x, y))
+
+            if keys[pygame.K_e] and time.time() - ultimo_uso_e > 0.5:
+                cartel_activo = True
+                tiempo_cartel = time.time()
+                ultimo_uso_e = time.time()
+                puerta.play()
+                player_x = 475
+                player_y = 940
+
+                estado = "exploracion_2"
+        
+        # detectar cercanía
+        if abs(player_x - boss_x) < 50 and abs(player_y - boss_y) < 50:
+            font = pygame.font.Font("PokemonGb-Raeo.ttf", 30)
+            msg_negro = font.render("Hablar con Obunga(ingles)", True, (0,0,0))
+            msg_blanco = font.render("Hablar con Obunga(ingles)", True, (255,255,255))
+            x, y = 100,510
+            # outline negro
+            screen.blit(msg_negro, (x-2, y))
+            screen.blit(msg_negro, (x+2, y))
+            screen.blit(msg_negro, (x, y-2))
+            screen.blit(msg_negro, (x, y+2))
+
+            # texto principal
+            screen.blit(msg_blanco, (x, y))
+
+            if keys[pygame.K_e] and time.time() - ultimo_uso_e > 0.5:
+                ultimo_uso_e = time.time()
+                dialogo_mainini = True
+                siguiente.play()
+            if dialogo_mainini:
+                    
+                    pygame.draw.rect(screen, (20,20,20), (40, 440, 720, 130))
+                    pygame.draw.rect(screen, (255,255,255), (40, 440, 720, 130), 4)
+
+                    font = pygame.font.Font("PokemonGb-Raeo.ttf", 15)
+                    texto = font.render("Obunga: XD inlges.", True, (255,255,255))
+                    screen.blit(texto, (70, 480))
+
+                    aviso = font.render("ESPACIO", True, (255,255,255))
+                    screen.blit(aviso, (610, 530))
+
+                    if keys[pygame.K_SPACE]:
+                        transicion_batalla()
+                        estado = "combate_ingles"
+    elif estado=="lab_log":
+
+        cambiar_musica("sonidos.musica/gym.mp3")
+        paredes_actuales = paredes_logica
+        mover_jugador()
+        screen.blit(mapa_log, (0,0))
+        boss_x, boss_y = 367, 100
+        boss = pygame.transform.scale(obunga, (70, 110))
+        screen.blit(boss, (boss_x, boss_y))
+        current_sprite = pygame.transform.scale(current_sprite, (64, 73))
+        screen.blit(current_sprite, (player_x, player_y))
+        puerta_salida = pygame.Rect(365, 520, 70, 30)
+        puerta_salida.x -= 20
+        puerta_salida.y -= 20
+        if abs(player_x - puerta_salida.x) < 50 and abs(player_y - puerta_salida.y) < 50:
+            font = pygame.font.Font("PokemonGb-Raeo.ttf", 30)
+            msg_negro = font.render("salir", True, (0,0,0))
+            msg_blanco = font.render("salir", True, (255,255,255))
+            x, y = 100,510
+            # outline negro
+            screen.blit(msg_negro, (x-2, y))
+            screen.blit(msg_negro, (x+2, y))
+            screen.blit(msg_negro, (x, y-2))
+            screen.blit(msg_negro, (x, y+2))
+
+            # texto principal
+            screen.blit(msg_blanco, (x, y))
+
+            if keys[pygame.K_e] and time.time() - ultimo_uso_e > 0.5:
+                cartel_activo = True
+                tiempo_cartel = time.time()
+                ultimo_uso_e = time.time()
+                puerta.play()
+                player_x = 1070
+                player_y = 940
+
+                estado = "exploracion_2"
+        
+        # detectar cercanía
+        if abs(player_x - boss_x) < 50 and abs(player_y - boss_y) < 50:
+            font = pygame.font.Font("PokemonGb-Raeo.ttf", 30)
+            msg_negro = font.render("Hablar con Obunga(logica)", True, (0,0,0))
+            msg_blanco = font.render("Hablar con Obunga(logica)", True, (255,255,255))
+            x, y = 100,510
+            # outline negro
+            screen.blit(msg_negro, (x-2, y))
+            screen.blit(msg_negro, (x+2, y))
+            screen.blit(msg_negro, (x, y-2))
+            screen.blit(msg_negro, (x, y+2))
+
+            # texto principal
+            screen.blit(msg_blanco, (x, y))
+
+            if keys[pygame.K_e] and time.time() - ultimo_uso_e > 0.5:
+                ultimo_uso_e = time.time()
+                dialogo_mainini = True
+                siguiente.play()
+            if dialogo_mainini:
+                    
+                    pygame.draw.rect(screen, (20,20,20), (40, 440, 720, 130))
+                    pygame.draw.rect(screen, (255,255,255), (40, 440, 720, 130), 4)
+
+                    font = pygame.font.Font("PokemonGb-Raeo.ttf", 15)
+                    texto = font.render("Obunga: XD inlges.", True, (255,255,255))
+                    screen.blit(texto, (70, 480))
+
+                    aviso = font.render("ESPACIO", True, (255,255,255))
+                    screen.blit(aviso, (610, 530))
+
+                    if keys[pygame.K_SPACE]:
+                        transicion_batalla()
+                        estado = "combate_logica"
+        paredes_actuales = paredes_pueblo 
+    elif estado=="lab_fil":
+
+        cambiar_musica("sonidos.musica/gym.mp3")
+        paredes_actuales = paredes_filosofia
+        mover_jugador()
+        screen.blit(mapa_fil, (0,0))
+        boss_x, boss_y = 367, 100
+        boss = pygame.transform.scale(obunga, (70, 110))
+        screen.blit(boss, (boss_x, boss_y))
+        current_sprite = pygame.transform.scale(current_sprite, (64, 73))
+        screen.blit(current_sprite, (player_x, player_y))
+        puerta_salida = pygame.Rect(365, 520, 70, 30)
+        puerta_salida.x -= 20
+        puerta_salida.y -= 20
+        if abs(player_x - puerta_salida.x) < 50 and abs(player_y - puerta_salida.y) < 50:
+            font = pygame.font.Font("PokemonGb-Raeo.ttf", 30)
+            msg_negro = font.render("salir", True, (0,0,0))
+            msg_blanco = font.render("salir", True, (255,255,255))
+            x, y = 100,510
+            # outline negro
+            screen.blit(msg_negro, (x-2, y))
+            screen.blit(msg_negro, (x+2, y))
+            screen.blit(msg_negro, (x, y-2))
+            screen.blit(msg_negro, (x, y+2))
+
+            # texto principal
+            screen.blit(msg_blanco, (x, y))
+
+            if keys[pygame.K_e] and time.time() - ultimo_uso_e > 0.5:
+                cartel_activo = True
+                tiempo_cartel = time.time()
+                ultimo_uso_e = time.time()
+                puerta.play()
+                player_x = 1040
+                player_y = 400
+
+                estado = "exploracion_2"
+        
+        # detectar cercanía
+        if abs(player_x - boss_x) < 50 and abs(player_y - boss_y) < 50:
+            font = pygame.font.Font("PokemonGb-Raeo.ttf", 30)
+            msg_negro = font.render("Hablar con Obunga(logica)", True, (0,0,0))
+            msg_blanco = font.render("Hablar con Obunga(logica)", True, (255,255,255))
+            x, y = 100,510
+            # outline negro
+            screen.blit(msg_negro, (x-2, y))
+            screen.blit(msg_negro, (x+2, y))
+            screen.blit(msg_negro, (x, y-2))
+            screen.blit(msg_negro, (x, y+2))
+
+            # texto principal
+            screen.blit(msg_blanco, (x, y))
+
+            if keys[pygame.K_e] and time.time() - ultimo_uso_e > 0.5:
+                ultimo_uso_e = time.time()
+                dialogo_mainini = True
+                siguiente.play()
+            if dialogo_mainini:
+                    
+                    pygame.draw.rect(screen, (20,20,20), (40, 440, 720, 130))
+                    pygame.draw.rect(screen, (255,255,255), (40, 440, 720, 130), 4)
+
+                    font = pygame.font.Font("PokemonGb-Raeo.ttf", 15)
+                    texto = font.render("Obunga: XD inlges.", True, (255,255,255))
+                    screen.blit(texto, (70, 480))
+
+                    aviso = font.render("ESPACIO", True, (255,255,255))
+                    screen.blit(aviso, (610, 530))
+
+                    if keys[pygame.K_SPACE]:
+                        transicion_batalla()
+                        estado = "combate_filosofia"
         paredes_actuales = paredes_pueblo 
 
     # COMBATE
@@ -1207,7 +1473,7 @@ while running:
         
         resultado = combate_mate.iniciar_combate(screen)
         print(resultado)
-        if resultado == "menu":
+        if resultado in ("menu", "lab_mate"):
             estado = "lab_mate"
             indice_historia = 0
             dialogo_pitagoras = False
@@ -1234,8 +1500,49 @@ while running:
             player_x, player_y = 365, 430
            
 
+    elif estado == "combate_ingles":
+        resultado = combate_ingles.iniciar_combate(screen)
+        print(resultado)
+        if resultado == "menu":
+            estado = "lab_ing"
+            indice_historia = 0
+            dialogo_pitagoras = False
+            player_x, player_y = 365, 430
+
+    elif estado == "combate_programacion":
+        resultado = combate_programacion.iniciar_combate(screen)
+        print(resultado)
+        if resultado in ("menu", "lab_programacion", "lab_prog", "exploracion_2"):
+            estado = "exploracion_2"
+            dialogo_pitagoras = False
+            player_x, player_y = 493, 380
+
+    elif estado == "combate_historia":
+        resultado = combate_historia.iniciar_combate(screen)
+        print(resultado)
+        if resultado == "menu":
+            estado = "lab_his"
+            indice_historia = 0
+            dialogo_pitagoras = False
+            player_x, player_y = 365, 430
+
+    elif estado == "combate_filosofia":
+        resultado = combate_filosofia.iniciar_combate(screen)
+        print(resultado)
+        if resultado == "menu":
+            estado = "lab_fil"
+            indice_historia = 0
+            dialogo_pitagoras = False
+            player_x, player_y = 365, 430
+
     elif estado == "combate_logica":
-        combate_logica.iniciar_combate(screen)
+        resultado = combate_logica.iniciar_combate(screen)
+        print(resultado)
+        if resultado == "menu":
+            estado = "lab_log"
+            indice_historia = 0
+            dialogo_pitagoras = False
+            player_x, player_y = 365, 430
         
     pygame.display.flip()
     clock.tick(60)

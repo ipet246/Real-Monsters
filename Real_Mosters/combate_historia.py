@@ -55,7 +55,7 @@ def iniciar_combate(screen):
     # ENTRENADOR RIVAL
     # ---------------------------
     entrenador_rival = pygame.image.load(
-        "imagenes/entrenador_geo.png"
+        "personajes/calzoski.png"
     )
 
     entrenador_rival = pygame.transform.scale(
@@ -148,377 +148,102 @@ def iniciar_combate(screen):
     def obtener_pregunta_geo():
 
         tipo = random.choice([
-            "capital",
-            "bandera",
             "imagen"
         ])
 
-        if tipo == "capital":
-            return random.choice(preguntas_capitales)
-
-        elif tipo == "bandera":
-            return random.choice(preguntas_banderas)
-
-        elif tipo == "imagen":
+        if tipo == "imagen":
             return random.choice(preguntas_imagenes)
         
-    preguntas_banderas = [
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/chile.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Brasil","Argentina","Chile","Perú"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/brasil.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["México","Brasil","Colombia","Bolivia"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/argentina.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Uruguay","Argentina","Paraguay","Chile"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/peru.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Perú","Canadá","Polonia","Austria"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/japon.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["China","Corea del Sur","Japón","Vietnam"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"bandera",
-        "imagen":"imagenes/alemania.png",
-        "pregunta":"¿Qué bandera es?",
-        "opciones":["Bélgica","Alemania","Francia","Italia"],
-        "correcta":1
-    }
-
-]
+    
     preguntas_imagenes = [
 
     {
         "tipo":"imagen",
-        "imagen":"imagenes/australia.png",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Australia","Canadá","Nueva Zelanda","Sudáfrica"],
+        "imagen":"imagenes/revolucion_mayo.jpg",
+        "pregunta":"¿Qué acontecimiento histórico aparece?",
+        "opciones":["Revolución de Mayo","Congreso de Tucumán","Batalla de San Lorenzo","Vuelta de Obligado"],
         "correcta":0
     },
 
     {
         "tipo":"imagen",
-        "imagen":"imagenes/brasilmapa.jpg",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Brasil","Argentina","Perú","México"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/chilemapa.jpg",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Argentina","Chile","Perú","Ecuador"],
+        "imagen":"imagenes/casa_tucuman.jpg",
+        "pregunta":"¿Qué hecho ocurrió en este lugar?",
+        "opciones":["Revolución de Mayo","Declaración de la Independencia","Cabildo Abierto","Creación de la Bandera"],
         "correcta":1
     },
 
     {
         "tipo":"imagen",
-        "imagen":"imagenes/canadamapa.jpg",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Estados Unidos","Canadá","Rusia","Noruega"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/india.png",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["China","India","Pakistán","Nepal"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"imagen",
-        "imagen":"imagenes/japonmapa.png",
-        "pregunta":"¿Qué país aparece?",
-        "opciones":["Corea del Sur","China","Japón","Taiwán"],
+        "imagen":"imagenes/san_martin.jpg",
+        "pregunta":"¿Quién es el personaje de la imagen?",
+        "opciones":["Manuel Belgrano","Juan Manuel de Rosas","José de San Martín","Domingo F. Sarmiento"],
         "correcta":2
+    },
+
+    {
+        "tipo":"imagen",
+        "imagen":"imagenes/belgrano.jpg",
+        "pregunta":"¿Quién creó la bandera argentina?",
+        "opciones":["José de San Martín","Manuel Belgrano","Mariano Moreno","Bernardino Rivadavia"],
+        "correcta":1
+    },
+
+    {
+        "tipo":"imagen",
+        "imagen":"imagenes/cabildo.jpg",
+        "pregunta":"¿Qué edificio aparece en la imagen?",
+        "opciones":["Casa Rosada","Cabildo de Buenos Aires","Congreso Nacional","Casa de Tucumán"],
+        "correcta":1
+    },
+
+    {
+        "tipo":"imagen",
+        "imagen":"imagenes/casa_rosada.jpg",
+        "pregunta":"¿Qué edificio es este?",
+        "opciones":["Cabildo","Casa Rosada","Congreso","Casa de Tucumán"],
+        "correcta":1
+    },
+
+    {
+        "tipo":"imagen",
+        "imagen":"imagenes/cruce_andes.jpg",
+        "pregunta":"¿Qué hecho histórico representa la imagen?",
+        "opciones":["Éxodo Jujeño","Cruce de los Andes","Batalla de Caseros","Batalla de Tucumán"],
+        "correcta":1
+    },
+
+    {
+        "tipo":"imagen",
+        "imagen":"imagenes/congreso_tucuman.jpg",
+        "pregunta":"¿Qué ocurrió en este congreso?",
+        "opciones":["Se sancionó la Constitución","Se declaró la Independencia","Se eligió el primer presidente","Se creó la bandera"],
+        "correcta":1
+    },
+
+    {
+        "tipo":"imagen",
+        "imagen":"imagenes/malvinas.jpg",
+        "pregunta":"¿Qué conflicto representa la imagen?",
+        "opciones":["Guerra del Paraguay","Guerra de Malvinas","Revolución del Parque","Campaña del Desierto"],
+        "correcta":1
+    },
+
+    {
+        "tipo":"imagen",
+        "imagen":"imagenes/sarmiento.jpg",
+        "pregunta":"¿Quién es el personaje de la imagen?",
+        "opciones":["Bartolomé Mitre","Domingo F. Sarmiento","Julio A. Roca","Hipólito Yrigoyen"],
+        "correcta":1
     }
 
 ]
-
-    preguntas_capitales = [
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Bolivia?",
-        "opciones":["La Paz","Lima","Quito","Bogotá"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Brasil?",
-        "opciones":["Brasilia","Rio","São Paulo","Salvador"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Argentina?",
-        "opciones":["Montevideo","Buenos Aires","Córdoba","Rosario"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Chile?",
-        "opciones":["Valparaíso","Santiago","Concepción","La Serena"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Perú?",
-        "opciones":["Cusco","Arequipa","Lima","Trujillo"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de México?",
-        "opciones":["Guadalajara","Monterrey","Cancún","Ciudad de México"],
-        "correcta":3
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Canadá?",
-        "opciones":["Toronto","Vancouver","Ottawa","Montreal"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Estados Unidos?",
-        "opciones":["Nueva York","Washington D.C.","Los Ángeles","Chicago"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Francia?",
-        "opciones":["Marsella","Lyon","París","Niza"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de España?",
-        "opciones":["Barcelona","Madrid","Valencia","Sevilla"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Alemania?",
-        "opciones":["Berlín","Múnich","Hamburgo","Frankfurt"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Japón?",
-        "opciones":["Osaka","Kioto","Tokio","Nagoya"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de China?",
-        "opciones":["Shanghái","Hong Kong","Pekín","Cantón"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Australia?",
-        "opciones":["Sídney","Melbourne","Canberra","Perth"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"capital",
-        "pregunta":"¿Capital de Rusia?",
-        "opciones":["Moscú","San Petersburgo","Kiev","Minsk"],
-        "correcta":0
-    }
-
-    ]
-    preguntas_geografia = [
-        {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el océano más grande del mundo?",
-        "opciones":["Atlántico","Índico","Pacífico","Ártico"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué océano baña la costa este de América?",
-        "opciones":["Pacífico","Atlántico","Índico","Ártico"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué océano separa América de Europa?",
-        "opciones":["Atlántico","Pacífico","Índico","Antártico"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el océano más pequeño?",
-        "opciones":["Pacífico","Ártico","Atlántico","Índico"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Por qué país pasa el Meridiano de Greenwich?",
-        "opciones":["Francia","España","Reino Unido","Alemania"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué marca el Meridiano de Greenwich?",
-        "opciones":["Latitud 0°","Longitud 0°","Ecuador","Trópico de Capricornio"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué línea divide la Tierra en hemisferio norte y sur?",
-        "opciones":["Greenwich","Capricornio","Ecuador","Círculo Polar"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿En qué hemisferio se encuentra Argentina?",
-        "opciones":["Norte","Sur","Ambos","Ninguno"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué línea imaginaria pasa por el norte de Argentina?",
-        "opciones":["Ecuador","Capricornio","Greenwich","Cáncer"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el Trópico ubicado al norte del Ecuador?",
-        "opciones":["Capricornio","Cáncer","Greenwich","Ártico"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el Trópico ubicado al sur del Ecuador?",
-        "opciones":["Capricornio","Cáncer","Greenwich","Antártico"],
-        "correcta":0
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el continente más grande?",
-        "opciones":["África","América","Europa","Asia"],
-        "correcta":3
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el continente más pequeño?",
-        "opciones":["Europa","Oceanía","África","América"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué continente tiene más países?",
-        "opciones":["Europa","América","África","Asia"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el desierto más grande del mundo?",
-        "opciones":["Sahara","Atacama","Gobi","Antártida"],
-        "correcta":3
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es la cordillera más larga del mundo?",
-        "opciones":["Alpes","Andes","Himalaya","Rocosas"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Dónde se encuentra la Cordillera de los Andes?",
-        "opciones":["Europa","Asia","Sudamérica","África"],
-        "correcta":2
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el río más largo del mundo?",
-        "opciones":["Amazonas","Nilo","Paraná","Yangtsé"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Qué país posee la mayor parte de la selva amazónica?",
-        "opciones":["Perú","Brasil","Colombia","Bolivia"],
-        "correcta":1
-    },
-
-    {
-        "tipo":"geografia",
-        "pregunta":"¿Cuál es el punto más alto de la Tierra?",
-        "opciones":["Aconcagua","K2","Everest","Aneto"],
-        "correcta":2
-    }
-    ]
+    
     preguntas_por_monstruo = {
         
-    "paisor": preguntas_capitales + preguntas_banderas,
+    "A": preguntas_imagenes + preguntas_imagenes,
 
-    "geografox": preguntas_imagenes + preguntas_geografia
+    "B": preguntas_imagenes + preguntas_imagenes
 
     }
 
@@ -875,7 +600,7 @@ def iniciar_combate(screen):
             # CAMBIA MÁS LENTO
             if random.randint(1,4) == 1:
 
-                numero_actual = random.randint(1,12)
+                numero_actual = random.randint(5,12)
 
             # EFECTO ZOOM
             tamaño = 120 + math.sin(time.time()*10)*8
@@ -1172,14 +897,14 @@ def iniciar_combate(screen):
     enemigo = [
 
         Monstruo(
-            "paisor",
-            50,
-            "imagenes/paisor.png"
+            "A",
+            25,
+            "imagenes/descargar.jfif"
         ),
         Monstruo(
-            "geografox",
-            60,
-            "imagenes/oceanix.png"
+            "B",
+            25,
+            "imagenes/ola.jfif"
         )
     ]
 
